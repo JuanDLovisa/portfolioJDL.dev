@@ -14,7 +14,7 @@
 
     <link rel="stylesheet" href="./CSS/normalize.css">
     <link rel="stylesheet" href="./CSS/index.css">
-    <link rel="icon" type="image/png" href="./Images/corcho.png">
+    <link rel="icon" type="image/png" href="./Images/Logo JDL.png">
 
     <title>Portafolio Lovisa Juan Diego</title>
 </head>
@@ -26,7 +26,10 @@
                 <div>
                     <img src="./Images/Logo JDL.png" alt="Logo Juan Diego Lovisa">
                 </div>
-                <ul class="menu">
+                <button class="menu-desplegable" id="menu-desplegable">
+                &#9776;
+                </button>
+                <ul class="menu" id="menu">
                     <li><a href="#info-content">Inicio</a></li>
                     <li><a href="#about">Sobre mi</a></li>
                     <li><a href="#technologies-section">Tecnologias</a></li>
@@ -36,7 +39,7 @@
         </header>
 
         <main class="main">
-            <img src="./Images/corcho.png" alt="Imagen de Lovisa Juan Diego">
+            <img src="./Images/yo.png" alt="Imagen de Lovisa Juan Diego">
             <div class="info-content" id="info-content">
                 <p class="greeting">Hola, mi nombre es</p>
                 <h1>Juan Diego Lovisa</h1>
@@ -54,26 +57,27 @@
     
     <section class="about" id="about">
         <h2>Sobre Mi</h2>
-        <img src="./Images/corcho.png" alt="Imagen mia">
+        <img src="./Images/yo-pesca.png" alt="Imagen Juan Diego Lovisa de pesca creada con IA">
         <div class="about-me">
             <p>Hola, soy Juan Diego Lovisa, inicie en el mundo de la infomatica en 2022 como estudiante de 
                 ingenieria en sistemas aprendiendo conceptos basicos de logica de programacion hasta que cambié un poco el rumbo.</p>
-            <p>El año pasado comence a estudiar Tecnicatura Universitaria en Programacion en la UTN FRRQ, hoy estoy en segundo año haciendo pequeños proyectos
+            <p>En 2024 comence a estudiar Tecnicatura Universitaria en Programacion en la UTN FRRQ, hoy estoy en segundo año haciendo pequeños proyectos
                 para ampliar el conocimiento para el dia de mañana.</p>
 
             <details class="about-summary" open>
                 <summary>Que estudios tienes</summary>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deleniti, blanditiis repellendus, quisquam exercitationem atque 
-                   provident sequi itaque facilis nihil minima corporis maiores, adipisci sint illum commodi veritatis! Unde, quas ea?</p>
+                <p>2 años de estudio de ingenieria en sistemas en UTN FRSF</p>
+                <p>1 año y medio de estudio de programador en UTN FRRQ</p>
+                <p>1 año y medio de aprendizaje de ingles (hasta nivel B1, preparando B2)</p>
             </details>
             <details class="about-summary">
                 <summary>Cuales son tus hobbies</summary>
-                <p>Ademas de la programación soy un entusiasta del gimnasio </p>
+                <p>Ademas de la programación soy un entusiasta de la informatica en general, gimnasio, pesca y disfruto de la cocina saludable.</p>
             </details>
             <details class="about-summary">
                 <summary>Cual es tu lenguaje favorito</summary>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deleniti, blanditiis repellendus, quisquam exercitationem atque 
-                   provident sequi itaque facilis nihil minima corporis maiores, adipisci sint illum commodi veritatis! Unde, quas ea?</p>
+                <p>No diria que tengo un lenguaje favorito aún pero me gusta la forma en la que se trabaja en Python, la sintaxis me parece muy limpia 
+                    y en muchos casos más fácil de entender que otros lenguajes.</p>
             </details> 
         </div>
     </section> 
@@ -209,6 +213,24 @@
             <p class="author">por <span>Lovisa Juan Diego</span></p>
         </div>
     </footer>
-    
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+        const despliegue = document.getElementById('menu-desplegable');
+        const menu = document.getElementById('menu');
+        const links = menu.querySelectorAll('a');
+
+        if (despliegue && menu) {
+            despliegue.addEventListener('click', () => {
+                menu.classList.toggle('show');
+            });
+
+            links.forEach(link => {
+                link.addEventListener('click', () => {
+                    menu.classList.remove('show');
+                });
+            });
+        }
+    });
+    </script>
 </body>
 </html>
