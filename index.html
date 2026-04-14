@@ -66,18 +66,24 @@
 
             <details class="about-summary" open>
                 <summary>Que estudios tienes</summary>
-                <p>2 años de estudio de ingenieria en sistemas en UTN FRSF</p>
-                <p>1 año y medio de estudio de programador en UTN FRRQ</p>
-                <p>1 año y medio de aprendizaje de ingles (hasta nivel B1, preparando B2)</p>
+                <div class="content">
+                    <p>2 años de estudio de ingenieria en sistemas en UTN FRSF</p>
+                    <p>1 año y medio de estudio de programador en UTN FRRQ</p>
+                    <p>1 año y medio de aprendizaje de ingles (hasta nivel B1, preparando B2)</p>
+                </div>
             </details>
             <details class="about-summary">
                 <summary>Cuales son tus hobbies</summary>
-                <p>Ademas de la programación soy un entusiasta de la informatica en general, gimnasio, pesca y disfruto de la cocina saludable.</p>
-            </details>
+                    <div class="content">
+                    <p>Ademas de la programación soy un entusiasta de la informatica en general, gimnasio, pesca y disfruto de la cocina saludable.</p>
+                    </div>
+                </details>
             <details class="about-summary">
                 <summary>Cual es tu lenguaje favorito</summary>
-                <p>No diria que tengo un lenguaje favorito aún pero me gusta la forma en la que se trabaja en Python, la sintaxis me parece muy limpia 
-                    y en muchos casos más fácil de entender que otros lenguajes.</p>
+                    <div class="content">
+                        <p>No diria que tengo un lenguaje favorito aún pero me gusta la forma en la que se trabaja en Python, la sintaxis me parece muy limpia 
+                            y en muchos casos más fácil de entender que otros lenguajes.</p>
+                    </div>
             </details> 
         </div>
     </section> 
@@ -214,10 +220,15 @@
         </div>
     </footer>
     <script>
+        
         document.addEventListener("DOMContentLoaded", () => {
         const despliegue = document.getElementById('menu-desplegable');
         const menu = document.getElementById('menu');
         const links = menu.querySelectorAll('a');
+        
+        despliegue.addEventListener('click', () => {
+            menu.classList.toggle('show');
+            });
 
         if (despliegue && menu) {
             despliegue.addEventListener('click', () => {
@@ -232,5 +243,74 @@
         }
     });
     </script>
+    <script>
+document.addEventListener("DOMContentLoaded", () => {
+
+    const despliegue = document.getElementById('menu-desplegable');
+    const menu = document.getElementById('menu');
+    const links = menu.querySelectorAll('a');
+
+    if (despliegue && menu) {
+        despliegue.addEventListener('click', () => {
+            menu.classList.toggle('show');
+        });
+
+        links.forEach(link => {
+            link.addEventListener('click', () => {
+                menu.classList.remove('show');
+            });
+        });
+    }
+
+    document.querySelectorAll(".about-summary").forEach(detail => {
+        const summary = detail.querySelector("summary");
+        const content = detail.querySelector(".content");
+
+        if (detail.open) {
+            detail.classList.add("active");
+            content.style.height = content.scrollHeight + "px";
+        } else {
+            content.style.height = "0px";
+        }
+
+        summary.addEventListener("click", (e) => {
+            e.preventDefault();
+
+            const isOpen = detail.hasAttribute("open");
+
+            if (isOpen) {
+
+                content.style.height = content.scrollHeight + "px";
+
+                requestAnimationFrame(() => {
+                    detail.classList.remove("active"); // flecha instantánea
+                    content.style.height = "0px";
+                });
+
+                content.addEventListener("transitionend", function handler() {
+                    detail.removeAttribute("open");
+                    content.removeEventListener("transitionend", handler);
+                });
+
+            } else {
+
+                detail.setAttribute("open", "");
+                detail.classList.add("active"); // flecha instantánea
+
+                const height = content.scrollHeight;
+
+                content.style.height = "0px";
+
+                requestAnimationFrame(() => {
+                    content.style.height = height + "px";
+                });
+            }
+        });
+    });
+
+});
+
+</script>
 </body>
 </html>
+
