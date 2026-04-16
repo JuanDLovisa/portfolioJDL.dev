@@ -85,7 +85,6 @@ body{
     top: .3rem;
     left: 5rem;
     cursor: pointer;
-    /*border: 1px solid #2ecc71;*/
 }
 
 .menu-desplegable {
@@ -128,7 +127,7 @@ body{
 }
 
 .main{
-    margin: 30rem auto 0 auto;
+    margin: 29rem auto 0 auto;
     width: 85vw;
     height: auto;
     display: grid;
@@ -194,7 +193,7 @@ h1{
 
     &:hover{
     box-shadow: 1px 1px 20px 4px #2ecc71;
-    background-color: #2ecc71cc;
+    background-color: #2ecc71cc; 
     transform: scale(1.05);
     }
 }
@@ -493,16 +492,18 @@ h1{
 }
 
 .form button{
-    width: 10rem;
+    width: 13rem;
     height: 3rem;
     align-self: center;
-    margin-top: 1.5rem;
-    margin-bottom: 10rem;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
     border-radius: 1.3rem;
     background-color: #2ecc71;
     border: 1px solid #fff;
     transition: .3s ease-in;
     outline: none;
+    cursor: pointer;
+    font-size: 1.5rem;
 }
 
 .form button:hover{
@@ -510,8 +511,15 @@ h1{
     transform: scale(1.05);
 }
 
+.flash-messages {
+    margin-top: 1rem;
+    font-size: 1.5rem;
+    transition: all 0.3s ease;
+    align-items: center;
+}
+
+
 .form div{
-    /*border: 1px solid red;*/
     display: flex;
     flex-direction: column;
     margin-top: 1rem;
@@ -532,7 +540,7 @@ h1{
 }
 
 footer{
-    height: 30vh;
+    height: 20vh;
     display: flex;
     justify-content: space-around;
     background-color: #121212;
@@ -654,6 +662,7 @@ footer a:hover{
     .main{
     grid-template-columns: 1fr;
     justify-items: center;
+    margin-top: 10rem;
     }
 
     .main img{
@@ -760,6 +769,7 @@ footer a:hover{
     footer{
         display:block;
         justify-items: center;
+        height: 34vh;
     }
 
     footer .nav-footer{
@@ -773,7 +783,7 @@ footer a:hover{
 }  
 
 [id] {
-    scroll-margin-top: 10rem;
+    scroll-margin-top: 9rem;
 }
 
 #info-content {

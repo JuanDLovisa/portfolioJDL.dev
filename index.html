@@ -45,7 +45,7 @@
                 <h1>Juan Diego Lovisa</h1>
                 <p class="greeting-study">Estudiante de programacion</p>
                 <p class="greeting-description">Estoy dando mis primeros pasos en el mundo del desarrollo y la programación, con muchas ganas de crecer y poder contribuir a proyectos que marquen la diferencia</p>
-                <a download="" href="https://drive.google.com/file/d/1qlTtwWvuuGA0GZx5taVTxvmhzLsxVg03/view?usp=sharing">
+                <a download="" href="https://drive.google.com/file/d/1TRz1A5Y_GPns1z4F0GewhYIFho0ERUon/view?usp=sharing">
                     <button class="download-button">
                         Descargar Curriculum
                     </button>
@@ -168,12 +168,12 @@
     <section class="contact-section" id="contact-section">
         <h2>Mantente en contacto</h2>
         <div class="contact-form">
-                <form action="submit" class="form">
+                <form id="contact-form" class="form">
                     <fieldset>
                         <div>
                             <label for="name" class="form-label">Tu nombre</label>
                             <div class="input-wrapper">
-                                <input class="form-data" type="text" id="name" name="name" placeholder="Escribe tu nombre" required pattern="[a-z][A-Z]">
+                                <input class="form-data" type="text" id="name" name="name" placeholder="Escribe tu nombre" required pattern="[A-Za-z\s]{3,}">
                             </div>
                         </div>
 
@@ -193,7 +193,8 @@
                         </div>
                     </fieldset>
                     
-                    <button>Enviar (icono)</button>
+                    <button type="submit">Enviar (icono)</button>
+                    <div id="flash-messages" class="flash-messages"></div>
                 </form>
         </div>
     </section>
@@ -219,6 +220,10 @@
             <p class="author">por <span>Lovisa Juan Diego</span></p>
         </div>
     </footer>
+    
+    <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+    <script src="contact.js"></script>
+    
     <script>
         
         document.addEventListener("DOMContentLoaded", () => {
